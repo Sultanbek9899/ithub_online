@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школа программирования IT-HUB</title>
+    <link rel="stylesheet" href="{% static 'scss/style.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/style.css' %}">
+    <link rel="stylesheet" href="{% static 'scss/wow.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /></head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">    
+    <link rel="shortcut icon" href="{% static 'img/img-content.png' %}">
+</head>
+<body>
+  <header class="header-area">
+    <div class="navbar-area">
+      <div class="container">
+        <nav class="site-navbar container">
+          <div class="borderr">
+           <img src="{% static 'img/logo.png' %}" alt="">
+          </div>
+          <ul>
+            <div class="ssss">
+              <a href="{%url 'courses_list' %}">Онлайн курсы</a>
+              <a href="#">О нас</a>
+              <a href="#">Контакты</a>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'my_courses_list' %}"> Мои курсы </a>
+                {%endif%}
+            </div>
+      
+            <div class="flex-menu">
+              <a href="#">RU</a>
+              <a href="#">/</a>
+              <a href="#">KG</a>
+            </div>
+            <div class="regis">
+                  {% if request.user.is_authenticated %}
+                    <a href="">{{request.user.first_name|title}}</a>
+                    <a href="{%url 'logout'%}">| Выйти</a>
+                  {%else%}
+                    <a href="{%url 'login' %}">Войти</a>
+                    <a href="">/</a>
+                    <a href="{%url 'register'%}">Регистрация</a>
+                  {%endif%}
+            </div>
+          </ul>  
+          <button class="nav-toggler">
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+   <section class="main-back">
+        <section class="content">
+                <div class="content-school wow pulse">
+                    <h2>Школа </h2>
+                    <div class="content-flex">
+                        <span>Программирования</span>
+                        <img src="{% static 'img/hub-opacity.png' %}" alt="logo-content">
+                    </div>
+                    <p>Учись, отдыхай, зарабатывай!</p>
+                    <div class="content-btn">
+                    <a href="tel:+996(507)550-111" class=" wow fadeInLeft">    <button> Перезвонить</button></a>
+                    </div>
+                </div>
+        </section>
+        <section class="offline">
+          <div class="offline-title">
+            <h2 class="wow fadeInLeft">Наши офлайн курсы</h2>
+            <p class="more wow fadeInLeft">
+              Мы предоставляем самые востребованные материалы</p>
+          </div>
+          <div class="flex-js">
+            <div class="offline-curses">
+              <div class="offline-prog wow fadeInLeft">
+                <div class="scrip">
+                  <div class="scrip-img">
+                    <div >
+                      <img  id="oneb"  onclick="jsp('js')" src="{% static 'img/before/1.png' %}" alt="">
+                    </div>
+                    <div>
+                      <a  onclick="jsp('js')">JavaScript (Front-end)</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="java">
+                  <div class="java-img">
+                    <div id="js">
+                      <img onclick="myFunction('java')" id="onec" src="{% static 'img/before/1.png' %}" alt="">
+                    </div>
+                    <div>
+                      <a  onclick="myFunction('java')">Java</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="python">
+                  <div class="python-img">
+                    <div>
+                      <img onclick="pyp('py')" id="onez" src="{% static 'img/before/1.png' %}" alt="">
+                    </div>
+                    <div>
+                      <a id="py" onclick="pyp('py')">Python</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui">
+                  <div class="ui-img">
+                    <div>
+                      <img onclick="ui('ux')" id="onex" src="{% static 'img/before/1.png' %}" alt="">
+                    </div>
+                    <div>
+                      <a id="ui" onclick="ui('ux')">UI/UX design</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        <div class="js " id="jsb">
+          <div class="js-card animated pulse">
+            <img src="{% static 'img/js.png' %}" alt="js">
+            <h2 class="animated flipInY">JavaScript (Front-end)</h2>
+            <p>
+              это мультипарадигменный язык программирования. Поддерживает объектно-ориентированный, императивный и функциональный стили. Является реализацией стандарта ECMAScript. JavaScript обычно используется как встраиваемый язык для программного доступа к объектам приложений.
+            </p>
+            <button  action="morejs.html" target="_self">Узнать подробнее</button>
+          </div>
+        </div>
+        <div class="js" id="javab">
+          <div class="js-card animated pulse">
+            <img src="{% static 'img/js.png' %}" alt="js">
+            <h2 class="animated flipInY">Java</h2>
+            <p>
+              Java представляет собой язык программирования и платформу вычислений, которая была впервые выпущена Sun Microsystems в 1995 г.  От портативных компьютеров до центров данных, используемых для научных разработок, от сотовых телефонов до сети Интернет — Java повсюду!
+            </p>
+            <button>Узнать подробнее</button>
+          </div>
+        </div>
+        <div class="js" id="pyb">
+          <div class="js-card animated pulse">
+            <img src="{% static 'img/js.png' %}" alt="js">
+            <h2 class="animated flipInY">Python</h2>
+            <p>
+              Вам точно стоит попробовать Python, если вы никогда не писали код,  Самый простой пример — программа, которая выводит на экран заданную фразу. Вот как выглядит ее код на трёх разных языках. Сравните количество и понятность строк кода
+            </p>
+            <button>Узнать подробнее</button>
+          </div>
+        </div>
+        <div class="js" id="uib">
+          <div class="js-card animated pulse">
+            <img src="{% static 'img/js.png' %}" alt="js">
+            <h2 class="animated flipInY">UI/UX</h2>
+            <p>
+              На курсе «UX-дизайн» вы научитесь проектировать удобные приложений и программ. Вы не только узнаете, как разрабатывать визуально привлекательные проекты, но и сможете создавать новый положительный опыт пользователей и менять мышление бизнеса об интерфейсах.
+            </p>
+            <button>Узнать подробнее</button>
+          </div>
+        </div>
+          </div>
+
+        </section>
+        <section class="online">
+          <div class="offline-title">
+            <h2 class=" wow fadeInLeft">Наши онлайн курсы</h2>
+          </div>
+          <p class="more  wow fadeInLeft">Мы предоставляем самые востребованные материалы</p>
+          <div class="flex-js-2">
+            <div class=" offline-curses">
+              <div class="offline-prog wow fadeInLeft">
+                <div class="scrip">
+                  <div class="scrip-img">
+                    <div >
+                      <img  onclick="javaos('jaos')" id="on1" src="{% static 'img/before/1.png' %}" alt="">
+                    </div>
+                    <div>
+                      <a  onclick="javaos('jaos')">JavaScript (Front-end)</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="java">
+                  <div class="java-img">
+                    <div>
+                      <img onclick="javao('jao')" id="on2" src="{%static 'img/before/1.png' %}" alt="">
+                    </div>
+                    <div>
+                      <a  onclick="javao('jao')">Java</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="python">
+                  <div class="python-img">
+                    <div>
+                      <img onclick="po('pyo')" id="on3" src="{% static 'img/before/1.png' %}" alt="">
+                    </div>
+                    <div>
+                      <a  onclick="po('pyo')">Python</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui">
+                  <div class="ui-img">
+                    <div>
+                      <img   onclick="uio('uxo')"id="on4" src="{% static 'img/before/1.png' %}" alt="">
+                    </div>
+                    <div>
+                      <a  onclick="uio('uxo')">UI/UX design</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="js2" id="json">
+                            <div class="js-card2 pulse">
+                              <img src="{% static 'img/js.png' %}" alt="js">
+                              <h2 class="animated flipInY">JavaScript (Front-end)</h2>
+                              <p>это мультипарадигменный язык программирования. Поддерживает объектно-ориентированный, императивный и функциональный стили. Является реализацией стандарта ECMAScript. JavaScript обычно используется как встраиваемый язык для программного доступа к объектам приложений.</p>
+                              <p class="online-price">Стоимость всего курса</p>
+                              <div class="js2-flex">
+                                <div class="first-price">
+                                  <p class="dollar">600$</p>
+                                  <p class="d-width">Первоначальная цена</p>
+                                </div>
+                                <div>
+                                  <img src="{% static 'img/line-price.png' %}" alt="">
+                                </div>
+                                <div>
+                                  <p class="dollar2">300$</p>
+                                  <p class="d-width d-widthl">со скидкой</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="js2" id="javas">
+                            <div class="js-card2 animated pulse">
+                              <img src="{% static 'img/js.png' %}" alt="js">
+                              <h2 class="animated flipInY">Java</h2>
+                              <p>Java представляет собой язык программирования и платформу вычислений, которая была впервые выпущена Sun Microsystems в 1995 г.  От портативных компьютеров до центров данных, используемых для научных разработок, от сотовых телефонов до сети Интернет — Java повсюду!
+                              </p>
+                              <p class="online-price">Стоимость всего курса</p>
+                              <div class="js2-flex">
+                                <div class="first-price">
+                                  <p class="dollar">600$</p>
+                                  <p class="d-width">Первоначальная цена</p>
+                                </div>
+                                <div>
+                                  <img src="{% static 'img/line-price.png' %}" alt="">
+
+                                </div>
+                                <div>
+                                  <p class="dollar2">300$</p>
+                                  <p class="d-width d-widthl">со скидкой</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="js2" id="pyon">
+                            <div class="js-card2 animated pulse">
+                              <img src="{% static 'img/js.png' %}" alt="js">
+                              <h2 class="animated flipInY">Python</h2>
+                              <p>
+                                Вам точно стоит попробовать Python, если вы никогда не писали код,  Самый простой пример — программа, которая выводит на экран заданную фразу. Вот как выглядит ее код на трёх разных языках. Сравните количество и понятность строк кода
+                              </p>
+                              <p class="online-price">Стоимость всего курса</p>
+                              <div class="js2-flex">
+                                <div class="first-price">
+                                  <p class="dollar">600$</p>
+                                  <p class="d-width">Первоначальная цена</p>
+                                </div>
+                                <div>
+                                  <img src="{% static 'img/line-price.png' %}" alt="">
+                                </div>
+                                <div>
+                                  <p class="dollar2">300$</p>
+                                  <p class="d-width d-widthl">со скидкой</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="js2" id="uion">
+                            <div class="js-card2 animated pulse">
+                              <img src="{% static 'img/js.png' %}" alt="js">
+                              <h2 class="animated flipInY">UI/UX</h2>
+                              <p>
+                                На курсе «UX-дизайн» вы научитесь проектировать удобные приложений и программ. Вы не только узнаете, как разрабатывать визуально привлекательные проекты, но и сможете создавать новый положительный опыт пользователей и менять мышление бизнеса об интерфейсах.
+                              </p>
+                              <p class="online-price">Стоимость всего курса</p>
+                              <div class="js2-flex">
+                                <div class="first-price">
+                                  <p class="dollar">600$</p>
+                                  <p class="d-width">Первоначальная цена</p>
+                                </div>
+                                <div>
+                                  <img src="{% static 'img/line-price.png' %}" alt="">
+                                </div>
+                                <div>
+                                  <p class="dollar2">300$</p>
+                                  <p class="d-width d-widthl">со скидкой</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+            </div>
+          </div>
+        </section>
+        <section class="about">
+          <div class="about-us  wow fadeInLeft">
+            <div class="about-title">
+              <p>О нас</p>
+            </div>
+            <div class="about-top">
+              <img src="{% static 'img/about-line.png' %}" alt="" >
+            </div>
+          <div class="about-text">
+            <img src="{% static 'img/logo.png' %}" alt="">
+            <p>
+              Школа программирования IT-HUB - это школа нового формата на рынке Кыргызстан . Которая использует формат обучения BOOTCAMP . Имеет свой собственный co-working center . Занятия проводятся каждый день по 5 часов на протяжении 2.5 месяцев . Мы готовим программистов уровня Junior за короткие сроки . С методикой bootcamp уже активно обучаются в таких странах как США в странах Европы и другие топовые страны мира . Так же наша школа имеет собственную компанию на аутсорсе . И мы выполняем заказы любого вида.</p>
+          </div>
+        </div>
+        <div class="our-office ">
+          <div class="our-office-title">
+            <p class=" wow fadeInRight">Наш офис</p>
+          </div>
+          <div class="our-office-img wow fadeInRight">
+            <img src="{% static 'img/cowor.png' %}" style="z-index: 0;" alt="">
+            <img src="{% static 'img/hub-opacity.png' %}" alt="">
+          </div>
+        </div>
+        </section>
+        <section class="office">
+          <div class="office-title">
+            <p>Наш офис</p>
+          </div>
+          <div class="wrapper">
+            <div class="sliderbig">
+                <div class="sliderbig__item">
+                    <img src="{% static 'img/slides/image14.png' %}" alt="">
+                </div>
+                <div class="sliderbig__item">
+                    <img src="{% static 'img/slides/image14.png' %}" alt="">
+                </div>
+                <div class="sliderbig__item">
+                    <img src="{% static 'img/slides/image14.png' %}" alt="">
+                </div>
+            </div>
+            <div class="wline">
+              <img src="{% static 'img/mobile/ffoterl.png' %}" alt="">
+            </div>
+            <div class="slider">
+                <div class="slider__item">
+                    <img src="{% static 'img/slides/image14.png' %}" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="{% static 'img/slides/image14.png' %}" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="{% static 'img/slides/image14.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        </section>
+        <section class="why">
+          <div class="why-title">
+            <p>6 причин , почему <br>
+              вам стоит учиться у нас</p>
+          </div>
+          <div class="becouse-num">
+            <div class="bflex wow fadeInLeft">
+              <div>
+                <img src="{% static 'img/1.png' %}" alt="">
+              </div>
+              <div>
+                <p class="text">Короткие сроки 2.5 месяца</p>
+              </div>
+            </div>
+            <div class="bflex wow fadeInLeft">
+              <div>
+                <img src="{% static 'img/2.png' %}" alt="">
+              </div>
+              <div>
+                <p class="text">300 часов практики</p>
+              </div>
+            </div>
+            <div class="bflex wow fadeInLeft">
+              <div>
+                <img src="{% static 'img/3.png' %}" alt="">
+              </div>
+              <div>
+                <p class="text">Бесплтаный coworking</p>
+              </div>
+            </div>
+            <div class="bflex wow fadeInLeft">
+              <div>
+                <img src="{% static 'img/4.png' %}" alt="">
+              </div>
+              <div>
+                <p class="text">Работа над реальными проектами</p>
+              </div>
+            </div>
+            <div class="bflex wow fadeInLeft">
+              <div>
+                <img src="{% static 'img/5.png' %}" alt="">
+              </div>
+              <div>
+                <p class="text">Возможность зарабатывать во время учебы</p>
+              </div>
+            </div>
+            <div class="bflex wow fadeInLeft">
+              <div>
+                <img src="{% static 'img/6.png' %}" alt="">
+              </div>
+              <div>
+                <p class="text">Сертификат государственного образца</p>
+              </div>
+            </div>
+          </div>
+          <div class="why-block">
+          <div class="why-study  wow fadeInLeft">
+            <div class="numbers-flex">
+              <div class="one-flex">
+                <div class="one">
+                  <img src="{% static 'img/1.png' %}" alt="">
+                </div>
+                <div class="one-text">
+                  <p>Короткие сроки 2.5 месяца</p>
+                </div>
+              </div>
+              <div class="two-flex">
+                <div class="two">
+                  <img src="{% static 'img/2.png' %}" alt="">
+                </div>
+                <div class="two-text">
+                  <p>300 часов практики</p>
+                </div>
+              </div>
+             <div class="three-flex">
+              <div class="three">
+                <img src="{% static 'img/3.png' %}" alt="">
+              </div>
+              <div class="three-text">
+                <p>Бесплтаный coworking</p>
+              </div>
+             </div>
+
+            </div>
+          </div>
+          <div class="numberss ">
+            <div class="four-flex wow fadeInRight">
+              <div class="four">
+                <img src="{% static 'img/4.png' %}" alt="">
+              </div>
+              <div class="four-text">
+                <p>Работа над реальными проектами</p>
+              </div>
+            </div>
+            <div class="five-flex  animated fadeInRight">
+              <div class="five">
+                <img src="{% static 'img/5.png' %}" alt="">
+              </div>
+              <div class="four-text">
+                <p>Возможность зарабатывать во время учебы</p>
+              </div>
+            </div>
+           <div class="six-flex wow fadeInRight" >
+            <div class="six">
+              <img src="{% static 'img/6.png' %}" alt="">
+            </div>
+            <div class="three-text">
+              <p>Сертификат государственного образца</p>
+            </div>
+           </div>
+          </div>
+        </div>
+        </section>
+        <footer class="address">
+          <div class="address-flex1 ">
+            <div class="address-title">
+              <div class="wow fadeInLeft">
+                <p>Наш адрес </p>
+              <p>г. Бишкек , ул.Фурманова 106</p>
+              </div>
+              <div class=" container address-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1718.1177569422705!2d74.58469991988244!3d42.85271878925807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0YTRg9GA0LzQsNC90L7QstCwIDEwNg!5e0!3m2!1sru!2skg!4v1597395888283!5m2!1sru!2skg" width="
+                480" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+              </div>
+            </div>
+            <div class="address-mail">
+              <div class="links">
+                <img class="line-footer" src="{% static 'img/mail-ling.png' %}" alt="">
+                <p class=" wow fadeInLeft">EMAIL</p>
+                <p class=" wow fadeInLeft">ithub.kg@gmail.com</p>
+                <p class=" wow fadeInLeft">Контакты</p>
+                <a href="tel:+996(507)550-111" class=" wow fadeInLeft">+996(507)550-111</a>
+                <a href="tel:+996(507)550-111" class=" wow fadeInLeft">+996(507)550-111</a>
+                <a href="tel:+996(507)550-111" class=" wow fadeInLeft">+996(507)550-111</a>
+              </div>
+              <div class="media">
+                <div>
+                  <p class=" wow fadeInLeft">СОЦИАЛЬНЫЕ СЕТИ</p>
+                </div>
+                <div class="media-flex">
+                  <div class="insta">
+                    <a href=""><i class="fab fa-instagram"></i>
+                    </a>
+                  </div>
+                  <div class="facebook">
+                    <a href=""><i class="fab fa-facebook-square"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="address-flex2">
+            <div class="address-flex2-title wow fadeInRight">
+              <p>Записаться на курс или получить бесплатную <br> консультацию</p>
+            </div>
+            <div class="form__group field  wow fadeInRight">
+              <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+              <label for="name" class="form__label"   style="color: white; margin-top: -6%;">Имя*</label>
+            </div>
+            <div class="form__group field wow fadeInRight">
+              <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+              <label for="name" class="form__label" style="color: white; margin-top: -6%;">Номер*</label>
+            </div>
+            <div class="form__group field wow fadeInRight">
+              <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+              <label for="name" class="form__label" style="color: white; margin-top: -6%;">Email*
+              </label>
+            </div>
+            <div class="form__group field wow fadeInRight">
+              <input style="margin-top: 10%;" type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+              <label for="name" class="form__label" style="color: white; margin-top: -1%;">Сообщение*
+              </label>
+            </div>
+            <div class=" wow fadeInRight address-flex2-btn">
+              <button>отправить </button>
+            </div>
+          </div>
+        </footer>
+    </section>
+    <script src="{% static 'js/card.js' %}"></script>
+    <script src="{% static 'js/wow.js' %}"></script>
+    <script>
+      new WOW().init();
+      </script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js    "></script>
+    <script src="{% static 'js/slick.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/burger.js' %}"></script>
+</body>
+</html>

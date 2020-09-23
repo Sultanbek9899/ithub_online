@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои курсы</title>
+    <link rel="stylesheet" href="{% static 'scss/style.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/style.css' %}">
+    <link rel="stylesheet" href="{% static 'scss/wow.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /></head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="shortcut icon" href="{% static 'img/img-content.png' %}">
+</head>
+<body>
+  <header class="my-header person">
+        <div>
+            <a href="{% url 'main_menu' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+        </div>
+        <div class="user mii">
+        <form id="app-cover">
+                    <div id="select-box">
+                            <input type="checkbox" id="options-view-button">
+                            <div id="select-button" class="brd">
+                                    <div id="selected-value">
+                                    <span></span>
+                                    </div>
+                                    <div id="chevrons">
+                                        <i style="color: white;" class="fas fa-caret-down"></i>                                        </div>
+                            </div>
+                    </div>
+            </form>
+        </div>
+</header>
+    <section class="my-corse">
+        <div class="my-title">
+            <h1><a style="text-decoration: none; color: black;" style="text-decoration: none; color: black;" href="personal.html">Добро пожаловать , {{new_user.first_name}}. Ваша регистрация прошла успешна</a> Перейдите по этой ссылке что бы войти на ваш аккаунт|
+                <a href="{%url 'login'%}">Войти </a></h1>
+        </div>
+
+
+    </section>
+  <footer class="footer-o">
+        <div>
+            <p>Контакты</p>
+            <p>+996(507)550-111
+            </p>
+            <p>
+                +996(507)550-111
+            </p>
+            <p>
+                +996(507)550-111
+            </p>
+        </div>
+        <div>
+            <p>EMAIL</p>
+            <p>ithub.kg@gmail.com</p>
+        </div>
+        <div>
+            <p>СОЦИАЛЬНЫЕ СЕТИ</p>
+            <div class="media-flex">
+                <a href="https://www.instagram.com/ithubkg/"><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+        <div>
+            <p>Наш адрес </p>
+            <p>г. Бишкек , ул.Фурманова 106</p>
+        </div>
+    </footer>
+  <script src="{% static 'js/wow.js' %}"></script>
+  <script>
+    new WOW().init();
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/boxes-user.js' %}">
+
+    </script>
+<script src="{%static 'js/burger.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О Java-Script</title>
+    <link rel="stylesheet" href="{% static 'scss/style.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/style.css' %}">
+    <link rel="stylesheet" href="{% static 'scss/wow.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /></head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">    
+    <link rel="shortcut icon" href="{% static 'img/img-content.png' %}">
+</head>
+<body>
+    <header class="header-area">
+        <div class="navbar-area">
+          <div class="container">
+            <nav class="site-navbar container">
+              <div>
+                <a href="{%url 'main_menu'%}" class="site-logo"><img src="{%static 'img/logo.png' %}" alt=""></a>
+              </div>
+              <ul>
+                <div class="ssss">
+                  <a href="{%url 'courses_list'%}">Онлайн курсы</a>
+                  <a href="#">О нас</a>
+                  <a href="#">Контакты</a>
+                   {% if request.user.is_authenticated %}
+                  <a href="{%url 'my_courses_list' %}">Мои курсы</a>
+                    {%endif%}
+                </div>
+          
+                <div class="flex-menu">
+                  <a href="#">RU</a>
+                  <a href="#">/</a>
+                  <a href="#">KG</a>
+                </div>
+                <div class="regis">
+                    {% if request.user.is_authenticated %}
+                    <a href="">{{request.user.first_name|title}} </a>
+                    <a href="{%url 'logout'%"> | Выйти</a>
+                    {%else%}
+                    <a href="{% url 'login' %}">Войти</a>
+                    <a href="#">/</a>
+                    <a href="{% url 'register' %}">Регистрация</a>
+                    {%endif%}
+                  </div>
+              </ul>  
+              <button class="nav-toggler">
+                <span></span>
+              </button>
+            </nav>
+          </div>
+        </div>
+      </header>
+    <section class="need">
+        <div class="need-title wow fadeInLeft">
+            <p>Почему нужно изучать JavaSript</p>
+            <img src="{% static 'img/mail-ling.png' %}" alt="">
+        </div>
+        <div class="need-just">
+            <div class="flex">
+                <img src="{%static 'img/online-curses/need1.png' %}" alt="">
+                <p>Простота изучения</p>
+                <p class="fir">Кривая обучения в JS довольно пологая. JS - это очень удобный для начинающих язык программирования, и каждый может начать обучение без опыта программирования. Так как JS в основном используется для разработки пользовательских интерфейсов, стоит перед этим так же изучить HTML и CSS</p>
+            
+            </div>
+            <div class="flex">
+                <img src="{%static 'img/online-curses/need2.png' %}" alt="">
+                <p class="mar">Широкая область 
+                    применения</p>
+                <p>Кривая обучения в JS довольно пологая. JS - это очень удобный для начинающих язык программирования, и каждый может начать обучение без опыта программирования. Так как JS в основном используется для разработки пользовательских интерфейсов, стоит перед этим так же изучить HTML и CSS</p>
+            
+            </div>
+            <div class="flex fl3">
+                <img src="{%static 'img/online-curses/need3.png' %}" alt="">
+                <p class="mar">Хорошие карьерные 
+                    перспективы
+                    </p>
+                <p>Кривая обучения в JS довольно пологая. JS - это очень удобный для начинающих язык программирования, и каждый может начать обучение без опыта программирования. Так как JS в основном используется для разработки пользовательских интерфейсов, стоит перед этим так же изучить HTML и CSS</p>
+            
+            </div>
+            
+        </div>
+    </section>
+    <section class="time">
+        <div class="time-ellipse">
+            <div>
+                <img class="wow tada" src="{%static 'img/online-curses/Ellipse1.png' %}" alt="">
+                <p class="father">Ближайшие потоки</p>
+                <p>17 августа</p>
+                <p>Пн-Чт 19:00-20:30</p>
+            </div>
+            <div>
+                <img class="wow rotateIn" src="{%static 'img/online-curses/Ellipse2.png' %}" alt="">
+                <p class="father">Длительность </p>
+                <p>2 месяца / 8 недель</p>
+                <p>2 раза в неделю по 2 часа</p>
+            </div><div>
+                <img class="wow tada" src="{%static 'img/online-curses/Ellipse3.png' %}" alt="">
+                <p class="father">Уровень</p>
+                <p>Легкий</p>
+                <p>Можно начать с нуля</p>
+            </div><div>
+                <img class="wow tada" src="{%static 'img/online-curses/Ellipse4.png' %}" alt="">
+                <p class="father">Стоимость</p>
+                <p>600$</p>
+            </div>
+        </div>
+    </section>
+    <section class="move">
+        <div class="move-title">
+            <p class="wow pulse">Как проходят онлайн курсы</p>
+            <img src="{%static 'img/mail-ling.png' %}" alt="">
+        </div>
+        <div class="flex">
+            <div>
+                <div class="text wow fadeInLeft">
+                    <p>
+                        1. Онлайн лекции с тренером
+                        2 раза в неделю тренер проводит онлайн лекции по каждой теме. В прямом эфире можно разбирать частые ошибки, спросить непонятные темы и многое другое
+                    </p>
+                    <p>2. Онлайн лекции с тренером
+                        2 раза в неделю тренер проводит онлайн лекции по каждой теме. </p>
+                        <p>3. Онлайн лекции с тренером
+                            2 раза в неделю тренер проводит онлайн лекции по каждой теме. В прямом эфире можно разбирать частые ошибки, спросить непонятные темы и многое другоеi</p>
+                </div>
+            </div>
+            <div>
+                <div class=" comp">
+                    <img class=" wow fadeInRight" src="{%static 'img/online-curses/comp.png' %}" alt="">
+                    <img src="{%static 'img/online-curses/Ellipsebig2.png' %}" alt="">
+                    <div class="rel">
+                        <img src="{%static 'img/online-curses/Ellipsebig1.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </section>
+    <section class="this-course">
+        <div class="this-title">
+            <p>Кому подойдёт этот курс</p>
+        </div>
+        <div class="mN">
+        <div>
+            <div class="f1">
+                <div>
+                    <img src="{%static 'img/online-curses/this1.png' %}" alt="">
+                </div>
+                <div><p>Новичкам</p></div>
+            </div>
+            <div class="f2">
+                <div>
+                    <img src="{%static 'img/online-curses/this2.png' %}" alt="">
+                </div>
+                <div><p>Начинающим программистам</p></div>
+            </div>
+            <div class="f3">
+                <div>
+                    <img src="{%static 'img/online-curses/this3.png' %}" alt="">
+                </div>
+                <div><p>Фрилансерам</p></div>
+            </div>
+        </div>
+           <div class="man wow fadeInRight">
+               <img src="{%static 'img/online-curses/man.png' %}" alt="">
+           </div>
+        </div>
+    </section>
+    <section class="learning">
+        <div class="learning-title">
+            <p>Чему вы научитесь</p>
+        </div>
+        <div class=" wow fadeInLeft learning-number">
+            <div class="mflex">
+                <div class="fflex">
+                    <div>
+                        <img src="{%static 'img/1.png' %}" alt="">
+                    </div>
+                    <div>
+                        <p>Верстать веб-страницы  средствами <br> CSS и HTML</p>
+                    </div>
+                </div>
+                <div class="sflex">
+                    <div>
+                        <img src="{%static 'img/2.png' %}" alt="">
+                    </div>
+                    <div>
+                        <p>Работать в системе <br> контроля версий GIT</p>
+                    </div>
+                </div>
+                <div class="tflex">
+                    <div>
+                        <img src="{%static 'img/3.png' %}" alt="">
+                    </div>
+                    <div>
+                        <p>Работать с макетами в  Figma</p>
+                    </div>
+                </div>   
+            </div>
+            <div class="m2flex">
+                <div class="fiflex">
+                    <div>
+                        <img src="{%static 'img/4.png' %}" alt="">
+                    </div>
+                    <div>
+                        <p>Создавать интерактивные веб-страницы в <br> браузере средствами JavaScript</p>
+                    </div>
+                </div>
+                <div class="siflex">
+                    <div>
+                        <img src="{%static 'img/5.png' %}" alt="">
+                    </div>
+                    <div>
+                        <p>Делать приложения на одном из <br> фреймворков JavaScript: React.js или  Jquery</p>
+                    </div>
+                </div>
+                <div class="seflex">
+                    <div>
+                        <img src="{%static 'img/6.png' %}" alt="">
+                    </div>
+                    <div>
+                        <p>Создание серверных решений с  <br> помощью Node.js</p>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </section>
+    <section class="bootcamp">
+        <div class="bootcamp-title">
+            <p>Мы обучаем студентов по методу BOOTCAMP</p>
+            <p>Что это значит? </p>
+        </div>
+        <div class="bootc">
+            <div class="skils wow zoomInLeft">
+                <div class="ski">
+                    <div>
+                        <img src="{%static 'img/1.png' %}" alt="">
+                    </div>
+                    <div>
+                        <p>Необходимые навыки и опыт за короткий период</p>
+                    </div>
+                </div>
+                <div class="help">
+                    <div>
+                        <img src="{%static 'img/2.png' %}" alt="">
+                    </div>
+                    <div>
+                        <p>BOOTCAMP- помогает экономить много времени</p>
+                    </div>
+                </div>
+                <div class="nice">
+                    <div>
+                        <img src="{%static 'img/3.png' %}" alt="">
+                    </div>
+                    <div>
+                        <p>BOOTCAMP — прекрасная возможность попробовать себя в новой сфере</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bootimg wow zoomInRight">
+                <img width="70%" src="{%static 'img/online-curses/bootcamp.png' %}" alt="">
+            </div>
+        </div>
+    </section>
+    <footer class="prices">
+        <div class="prices-flex">
+            <img src="{%static 'img/online-curses/footer1.png' %}" alt="">
+        </div>
+        <div class="month">
+            <div class="stu">
+                <p>Стоимость обучения</p>
+            </div>
+            <div class="proflex">
+                <div class="sixth">
+                    <p>600$</p>
+                    <p class="ress">Рассрочка на 36 месяцев</p>
+                </div>
+                <div class="sto">
+                    <p>100$</p>
+                    <p class="ress">Первоначальная цена</p>
+                </div>
+                <div class="fifty">
+                    <p>50$</p>
+                    <p class="ress">Цена на месяц</p>
+                </div>
+            </div>
+        </div>
+        <div class="foot2">
+            <button class="wow pulse">Записаться на курсы</button>
+        </div>
+        <footer class="footer-o">
+            <div>
+                <p>Контакты</p>
+                <p>+996(507)550-111
+                </p>
+                <p>
+                    +996(507)550-111
+                </p>
+                <p>
+                    +996(507)550-111
+                </p>
+            </div>
+            <div>
+                <p>EMAIL</p>
+                <p>ithub.kg@gmail.com</p>
+            </div>
+            <div>
+                <p>СОЦИАЛЬНЫЕ СЕТИ</p>
+                <div class="media-flex">
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div>
+                <p>Наш адрес </p>
+                <p>г. Бишкек , ул.Фурманова 106</p>
+            </div>
+        </footer>
+            </section> 
+    </footer>
+    <script src="{% static 'js/wow.js' %}"></script>
+    <script>
+      new WOW().init();
+      </script>
+</body>
+</html>

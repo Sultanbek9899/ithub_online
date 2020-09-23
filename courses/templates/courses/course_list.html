@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школа программирования IT-HUB</title>
+    <link rel="stylesheet" href="{% static 'scss/style.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/style.css' %}">
+    <link rel="stylesheet" href="{% static 'scss/wow.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /></head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">    
+    <link rel="shortcut icon" href="{% static 'img/img-content.png' %}">
+</head>
+<body>
+    <header class="header-area">
+        <div class="navbar-area">
+          <div class="container">
+            <nav class="site-navbar container">
+              <div>
+                <a href="{%url 'main_menu'%}" class="site-logo"><img src="{% static 'img/logo.png' %}" alt=""></a>
+              </div>
+              <ul>
+                <div class="ssss">
+                  <a href="{% url 'courses_list' %}">Онлайн курсы</a>
+                  <a href="#">О нас</a>
+                  <a href="#">Контакты</a>
+                    {% if request.user.is_authenticated %}
+                  <a href="{% url 'my_courses_list' %}">Мои курсы</a>
+                    {% endif %}
+                </div>
+                <div class="regis">
+                   {% if request.user.is_authenticated %}
+                    <a href="">{{request.user.first_name|title}}</a>
+                    <a href="{%url 'logout' %">| Выйти</a>
+                    {%else%}
+                    <a href="{% url 'login' %}">Войти</a>
+                    <a href="#">/</a>
+                    <a href="{% url 'register' %}">Регистрация</a>
+                    {%endif%}
+                  </div>
+              </ul>
+              <button class="nav-toggler">
+                <span></span>
+              </button>
+            </nav>
+          </div>
+        </div>
+      </header>
+    <section class="back-main-content">
+    <section class="content-o">
+        <div class="relax-flex">
+            <div><p>Учись, отдыхай, зарабатывай!  </p>
+            </div>
+        </div>
+        <div class="our-curses">
+            <p class="wow fadeInDown">Наши онлайн курсы</p>
+        </div>
+        <div class="asset">
+            <p>Мы предоставляем самые востребованные материалы</p>
+        </div>
+        <div class="vidd container" style="margin-top: 4%;">
+            <video class="vidd" width="665" height="374" autoplay muted controls loop>
+                <source src="{% static 'vidoes/IT hub - Кто мы, что мы.mp4' %}" type="video/mp4">
+                <source src="{% static 'vidoes/IT hub - Кто мы, что мы.mp4' %}" type="video/ogg">
+              </video>
+        </div>
+    </section>
+    <section class="wow pulse curs-cards">
+        {%for courses in object_list %}
+            <div class="curs-js">
+                <img src="/img/online-m/js-o.png" alt="">
+                <h2>{{courses.title}}</h2>
+                <p>Полный курс по {{courses.title}}</p>
+                <div class="online-m-learn">
+                </div>
+                <h3>{{courses.price}} сом</h3>
+                <div class="btn-flx">
+                    <div>
+                        <a href="{% url 'about_js'%}">
+                            <button>Подробнее</button>
+                     </a>
+                    </div>
+                    <div>
+                        <button>Купить</button>
+                    </div>
+                </div>
+                {%if courses.status %}
+                <h3>Уже доступно!!!</h3>
+                {%else%}
+                <h3>Скоро откроется</h3>
+                {%endif%}
+            </div>
+        {%endfor%}
+
+
+
+    </section>
+    <footer class="footer-o">
+        <div>
+            <p>Контакты</p>
+            <p>+996(507)550-111
+            </p>
+            <p>
+                +996(507)550-111
+            </p>
+            <p>
+                +996(507)550-111
+            </p>
+        </div>
+        <div>
+            <p>EMAIL</p>
+            <p>ithub.kg@gmail.com</p>
+        </div>
+        <div>
+            <p>СОЦИАЛЬНЫЕ СЕТИ</p>
+            <div class="media-flex">
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+        <div>
+            <p>Наш адрес </p>
+            <p>г. Бишкек , ул.Фурманова 106</p>
+        </div>
+    </footer>
+    </section>
+    <script src="{%static 'js/wow.js' %}"></script>
+    <script>
+      new WOW().init();
+      </script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+          <script src="https://code.jquery.com/jquery-3.5.1.min.js    "></script>
+          <script src="{%static 'js/burger.js' %}"></script>
+</body>
+</html>

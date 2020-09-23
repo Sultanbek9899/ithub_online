@@ -1,0 +1,5 @@
+media/
+.idea/
+__pycache__/
+*.pyc
+db.postgresql_psycopg2
