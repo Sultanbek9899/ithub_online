@@ -3,3 +3,4 @@ media/
 __pycache__/
 *.pyc
 db.postgresql_psycopg2
+sqlite3.db

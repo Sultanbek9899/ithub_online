@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = local_settings.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -79,16 +79,28 @@ WSGI_APPLICATION = 'ithub.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ithub_db',
-        'USER': 'ithub_admin',
-        'PASSWORD': local_settings.DB_PASSWORD,
-        'HOST': 'localhost',
-        'PORT': 5432,
-    }
+if DEBUG:
+    DATABASES={
+        'default':{
+      'ENGINE': 'django.db.backends.sqlite3',
+      'NAME':BASE_DIR / 'sqlite3.db',
+        }
 }
+
+
+else:    
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'ithub_db',
+            'USER': 'ithub_admin',
+            'PASSWORD': local_settings.DB_PASSWORD,
+            'HOST': 'localhost',
+            'PORT': 5432,
+        }
+    }
+
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'

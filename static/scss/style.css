@@ -23,6 +23,7 @@ body {
   position: fixed;
   width: 100%;
   z-index: 9;
+  margin-bottom: 100px;
   /* mobile breakpoint start */
   /* mobile breakpoint end */
 }
@@ -111,7 +112,7 @@ body {
 }
 
 .header-area .site-navbar a:hover {
-  border-bottom: 1px solid #99C911;
+  text-decoration: none;
   color: #99C911;
   -webkit-transition: .7s;
   transition: .7s;
@@ -182,7 +183,30 @@ body {
           transform: translateY(-3px) rotate(-45deg);
 }
 
+
 @media screen and (max-width: 1083px) {
+
+  .tabb .wrapper-btn{
+ 
+  
+    position: absolute;
+    left:26% !important;
+    
+  
+  
+  }
+  .tabb .register-btn{
+ 
+  
+    position: absolute;
+    left:15% !important;
+    
+  
+  
+  }
+
+
+
   .header-area {
     /* navbar css for mobile end */
   }
@@ -2367,11 +2391,20 @@ body {
             transform: translateX(0);
   }
 }
-
+.btn-success a{
+  color:#fff;
+}
+.btn-success a:hover{
+  color:#fff;
+  text-decoration: none;
+}
 .my-corse .my-flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 50px;
+
+  color:white;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -2564,26 +2597,27 @@ body {
   transition: all 0.35s;
 }
 
-.tabb .btnn {
-  margin-left: 40%;
-  margin-top: 8%;
-}
+
 
 .tabb .wrapper-btn{
-  position: absolute;
+ 
   text-align: center;
   color: #EFEFEF;
   background: #000000;
-  width: 348px;
-  height: 65px;
+  
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
-  line-height: 181.9%;
+  padding:10px 70px;
+  border-radius:20px;
+  margin-top: 40px;
+  position: absolute;
+  left:70%;
+  
+
   border: 2px solid #99C911;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-radius: 294px;
+
 }
 
 .tabb button:hover {
@@ -2647,6 +2681,11 @@ body {
 }
 
 @media screen and (min-width: 220px) and (max-width: 1080px) {
+  .tabb .wrapper {
+    max-width: 50rem;
+    width: 100%;
+    margin: 50px auto;
+  }
   .header-area {
     max-width: 100%;
   }
@@ -3391,7 +3430,7 @@ body {
     line-height: 40px;
   }
   .tabb {
-    padding-top: 20%;
+  
     width: 100%;
     display: block;
     float:none;
@@ -3430,11 +3469,7 @@ body {
     padding-left: 2px;
     padding-right: 2px;
   }
-  .tabb .Wrapper input {
-    padding-left: 20px;
-    width: 100%;
-
-  }
+  
   .tabb .tab-content{
   color: red;
   }

@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="option">
                                         <i style="color: #99C911;" class="fas fa-chevron-left"></i>
-                                        <span class="label"><a href="personal.html">Мои курсы</a> </span>
+                                        <span class="label"><a href="{%url 'my_courses_list' %}">Мои курсы</a> </span>
                                         <span class="opt-val"><a  target="_blank" href="index.html"></a> Мои курсы </span>
                                 </div>
                                 <div id="option-bg"></div>
@@ -70,7 +70,7 @@
                       <div class="tab-content"> 
                         <div id="home" class="tab-pane fade in active">
                           <h3>Описание </h3>
-                          <p>{{content.description}}</p>
+                          <p>{{content.content_description}}</p>
                         </div>
                         <div id="menu1" class="tab-pane fade">
                             <h3>Домашнее задание</h3>

@@ -56,7 +56,7 @@
 </header>
     <section class="my-corse">
         <div class="my-title">
-            <h1><a style="text-decoration: none; color: black;" style="text-decoration: none; color: black;" href="personal.html"> Мои курсы</a></h1>
+            <h1><a style="text-decoration: none; color: black;" style="text-decoration: none; color: black;" href="{% url 'my_courses_list' %}" > Мои курсы</a></h1>
         </div>
         {%if courses%}
         {%for course in courses %}
@@ -69,17 +69,17 @@
                         {{course.course.short_description}}
                     </p>
                   </div>
-                    <div style="high:10px;">
+                    <div style="hight:10px;">
 
                     </div>
                   <div class="my-flex">
-                      <button type="button" class="btn btn-success" ><a href="{% url 'course_detail' course.course.slug %}">Success</a></button>
+                      <button type="button" class="btn btn-success" ><a href="{% url 'course_detail' course.course.slug %}">Войти</a></button>
                   </div>
         </div>
         {% endfor %}
         {%else%}
          <div class="my-title">
-            <h1><a style="text-decoration: none; color: black;" style="text-decoration: none; color: black;" href="personal.html">Вы пока не проебрели курсы. <a href="{%url 'courses_list'%}">Посмотреть список курсов</a></h1>
+            <h1><a style="text-decoration: none; color: black;" style="text-decoration: none; color: black;" href="d">Вы пока не проебрели курсы. <a href="{%url 'courses_list'%}">Посмотреть список курсов</a></h1>
         </div>
         {%endif%}
 
